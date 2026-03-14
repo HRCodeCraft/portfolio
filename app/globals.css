@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0d0d1a;
+  --accent-rose: #ff4d6d;
+  --accent-amber: #fbbf24;
+  --accent-orange: #ff6b35;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glow-rose: rgba(255, 77, 109, 0.15);
+  --glow-amber: rgba(251, 191, 36, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff4d6d, #fbbf24);
+  border-radius: 2px;
+}
+
+/* ── Selection ──────────────────────────────────── */
+::selection {
+  background: rgba(255, 77, 109, 0.25);
+  color: #fff;
+}
+
+/* ── Glass card ─────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+/* ── Glow border ────────────────────────────────── */
+.glow-border {
+  border: 1px solid rgba(255, 77, 109, 0.18);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.glow-border:hover {
+  border-color: rgba(255, 77, 109, 0.45);
+  box-shadow:
+    0 0 24px rgba(255, 77, 109, 0.12),
+    0 0 1px rgba(255, 77, 109, 0.3),
+    inset 0 0 24px rgba(255, 77, 109, 0.04);
+}
+
+/* ── Gradient text ──────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(120deg, #ff4d6d 0%, #ff8c42 45%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(120deg, #ff4d6d 0%, #ff8c42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glow text ──────────────────────────────────── */
+.glow-text {
+  text-shadow: 0 0 40px rgba(255, 77, 109, 0.6), 0 0 80px rgba(255, 77, 109, 0.2);
+}
+
+/* ── Badges ─────────────────────────────────────── */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 77, 109, 0.08);
+  border: 1px solid rgba(255, 77, 109, 0.25);
+  color: #ff4d6d;
+}
+
+.tech-badge-purple {
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #fbbf24;
+}
+
+/* ── Animated gradient background ──────────────── */
+.animated-gradient-bg {
+  background:
+    radial-gradient(ellipse at 15% 40%, rgba(255, 77, 109, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(251, 191, 36, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 90%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+    #0a0a0f;
+}
+
+/* ── Tech line decoration ───────────────────────── */
+.tech-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 77, 109, 0.4) 50%, transparent 100%);
+}
+
+/* ── Subtle grid overlay ─────────────────────────── */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 77, 109, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 77, 109, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Animated border glow ────────────────────────── */
+@keyframes borderPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 77, 109, 0); }
+  50%       { box-shadow: 0 0 20px 2px rgba(255, 77, 109, 0.2); }
+}
+.border-pulse {
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+/* ── Floating animation ──────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(0.5deg); }
+  66%       { transform: translateY(-4px) rotate(-0.5deg); }
+}
+.float-slow { animation: float 8s ease-in-out infinite; }
+
+/* ── Scan line ───────────────────────────────────── */
+@keyframes scanLine {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(3000%); opacity: 0; }
+}
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 77, 109, 0.3), transparent);
+  animation: scanLine 6s linear infinite;
+  pointer-events: none;
+}
+
+/* ── Terminal text blinking cursor ───────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+/* ── Shimmer ─────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, #ff4d6d 0%, #fbbf24 30%, #ff4d6d 60%, #fbbf24 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ── Noise texture overlay ───────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+/* ── Pulse dot ───────────────────────────────────── */
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.6; }
+}
+.pulse-dot { animation: pulseDot 2s ease-in-out infinite; }
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .section-padding { padding: 6rem 0; }
+}
