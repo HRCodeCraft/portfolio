@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { GraduationCap, Briefcase, Code2, Brain } from "lucide-react";
 import Image from "next/image";
+import profileImg from "../public/profile.jpg";
 
 const timeline = [
   {
@@ -80,7 +81,7 @@ export default function About() {
                 />
                 <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-white/10">
                   <Image
-                    src="/profile.jpg"
+                    src={profileImg}
                     alt="Harshita Rajput"
                     fill
                     sizes="80px"
