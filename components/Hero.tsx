@@ -179,7 +179,7 @@ export default function Hero() {
               </button>
 
               <a
-                href="/resume.pdf"
+                href="/portfolio/resume.pdf"
                 download="Harshita_Rajput_Resume.pdf"
                 className="group flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-white/4 text-white font-semibold text-sm rounded-xl border border-[#fbbf24]/25 hover:bg-[#fbbf24]/10 hover:border-[#fbbf24]/50 transition-all duration-200"
               >
